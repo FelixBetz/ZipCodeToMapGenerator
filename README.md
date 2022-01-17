@@ -2,8 +2,8 @@
 
 ## installation prerequisite
 
-    `pip install folium`
-    `pip install pgeocode`
+    pip install folium
+    pip install pgeocode
 
 > (NOTE: On Linux use pip3 instead of pip)
 
@@ -11,7 +11,7 @@
 
 1.  execute in commandline:
 
-        `python gernerate_maps.py`
+        python gernerate_maps.py
 
 2.  html files will be generated into output folder
 
