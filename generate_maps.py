@@ -23,7 +23,7 @@ if not os.path.exists(OUTPUT_DIR_PATH):
 ZIP_CODE_FILE_NAME = 'input_zipcodes.csv'
 
 zip_codes = []
-with open(ZIP_CODE_FILE_NAME, newline='') as csvfile:
+with open(ZIP_CODE_FILE_NAME, newline='',encoding='utf-8') as csvfile:
     spamreader = csv.reader(csvfile, delimiter=';', quotechar='|')
     for i, row in enumerate(spamreader):
         if i == 0:
@@ -57,10 +57,14 @@ mCluster = MarkerCluster(name='Zeltlager Teilnehmer').add_to(mapObj)
 
 # create markers form PLZ coordinates array
 for i, pnt in enumerate(markerLocs):
-    folium.Marker(location=[pnt[0], pnt[1]],
-                  popup="{0} {1}\r\n({2},{3})".format(zip_codes[i][0],
-                                                      zip_codes[i][1],
-                                                      pnt[0], pnt[0])).add_to(mCluster)
+    zipcode =  zip_codes[i][0]
+    location = zip_codes[i][1]
+    x = pnt[0]
+    y = pnt[1]
+    folium.Marker(
+        location=[pnt[0], pnt[1]],
+        popup=f"{zipcode} {location}\r\n({x}°| {y}°)"
+    ).add_to(mCluster)
 
 minimap = plugins.MiniMap()
 mapObj.add_child(minimap)
