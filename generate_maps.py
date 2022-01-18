@@ -1,22 +1,19 @@
+"""This module parses a input CSV list and generate some maps"""
 import csv
-import ssl
 import os
 
-import folium  # doc: https://python-visualization.github.io/folium/plugins.html#folium.plugins.MarkerCluster
+import folium
 from folium.plugins import MarkerCluster
 from folium import plugins
 
-import pgeocode  # doc: https://pypi.org/project/pgeocode/
-
-# avoid ssl certification problems
-ssl._create_default_https_context = ssl._create_unverified_context
+import pgeocode
 
 # generate output directory
 OUTPUT_DIR_PATH = './output/'
 if not os.path.exists(OUTPUT_DIR_PATH):
     os.makedirs(OUTPUT_DIR_PATH)
 
-# prse PLZs from csv file
+# parse PLZs from csv file
 # format: delimiter: ';'
 #line   | zipcode;locationName
 # -------------------------------------
