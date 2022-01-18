@@ -1,6 +1,6 @@
 # ZipCodeToMapGenerator
 
-## installation prerequisite
+## installation prerequisites
 
     pip install folium
     pip install pgeocode
